@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute HTML</title>
+    <style>
+        a[target="_blank"] {
+            color: red;
+        }
+
+        p[title~="pemrograman"]{
+            color: red;
+        }
+        
+        h2[title|="belajar"] {
+            color: aqua;
+        }
+
+        h3[title^="belajar"]{
+            background-color: brown;
+        }
+
+        h4[title$="belajar"]{
+            background-color: burlywood;
+        }
+
+
+    </style>
+</head>
+<body>
+    <a href="">Contoh 1</a>
+    <a href="" target="_blank">Contoh 1</a>
+    <a href="" target="_blank">Contoh 1</a>
+    <a href="" target="_blank">Contoh 1</a>
+    <a href="">Contoh 1</a> <br>
+
+    <p title="belajar pemrograman">ini dipilih</p>
+    <p title="belajarpemrograman">ini tidak dipilih</p> <br>
+
+    <h2 title="belajar pemrograman">ini tidak dipilih</h2>
+    <h2 title="belajar-pemrograman">ini dipilih</h2>
+    <h2 title="belajarpemrograman">ini tidak dipilih</h2>
+    <h2 title="belajar">ini dipilih</h2> <br>
+
+    <h3 title="belajar pemrograman">ini dipilih</h3>
+    <h3 title="belajar-pemrograman">ini dipilih</h3>
+    <h3 title="belajarpemrograman">ini dipilih</h3>
+    <h3 title="pemrograman belajar">ini tidak dipilih</h3> <br>
+    
+    <h4 title="pemrograman belajar">ini dipilih</h4>
+    <h4 title="belajar pemrograman">ini tidak dipilih</h4>
+    <h4 title="belajar-pemrograman">ini tidak dipilih</h4>
+    <h4 title="belajarpemrograman">ini tidak dipilih</h4> <br>
+
+    
+
+</body>
+</html>
