@@ -1,0 +1,10 @@
+@layer a {
+    h1 {
+        background-color: maroon;
+    }
+}
+@layer b {
+    h1 {
+        background-color: pink;
+    }
+}
