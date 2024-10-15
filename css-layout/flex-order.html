@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Items CSS</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .content {
+            width: 200px;
+            background-color: black;
+            color: white;
+            border: 2px solid bisque;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content" style="order: 2;">
+            <h1>Title 1</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non quae aut, quibusdam a, omnis dicta eos cum sed molestias sint quam repellendus provident sunt voluptates earum commodi animi amet expedita.
+            </p>
+        </div>
+        <div class="content" style="order: 3;">
+            <h1>Title 2</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non quae aut, quibusdam a, omnis dicta eos cum sed molestias sint quam repellendus provident sunt voluptates earum commodi animi amet expedita.
+            </p>
+        </div>
+        <div class="content" style="order: 1;">
+            <h1>Title 3</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non quae aut, quibusdam a, omnis dicta eos cum sed molestias sint quam repellendus provident sunt voluptates earum commodi animi amet expedita.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
