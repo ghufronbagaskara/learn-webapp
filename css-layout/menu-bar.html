@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Bar CSS</title>
+    <style>
+        .menubar {
+            display: inline-block;
+        }
+        .menu {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .menulist {
+            display: none;
+            position: absolute;
+            background-color: black;
+            color: bisque;
+            z-index: 1;
+        }
+        .menulist a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        .menulist a:hover {
+            background-color: beige;
+            color: black;
+        }
+        .menubar:hover .menu {
+            background-color: beige;
+            color: black;
+        }
+        .menubar:hover .menulist{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="menubar">
+        <button class="menu">Social Media</button>
+        <div class="menulist">
+            <a href="#">Facebook</a>
+            <a href="#">Youtube</a>
+            <a href="#">Instagram</a>
+            <a href="#">Linkedin</a>
+        </div>
+    </div>
+</body>
+</html>
