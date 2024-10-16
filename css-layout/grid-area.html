@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Line CSS</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 100px auto 100px;
+            grid-template-rows: 50px auto 100px;
+            grid-template-areas: 
+                "header header header"
+                ". content ."
+                "footer footer footer";
+        }
+
+        .header {
+            background-color: brown;
+            grid-area: header;
+        }
+
+        .content {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            margin: 10px;
+            grid-area: content;
+        }
+
+        .footer{
+            background-color: blanchedalmond;
+            color: black;
+            grid-area: footer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Selamat Datang di Web Ghufron Bagaskara
+        </div>
+
+        <div class="content">
+            <h1>Content</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus rerum officiis blanditiis molestias amet, earum esse cupiditate. Esse dolores minima, rerum, ut, officiis aut quas tenetur harum corrupti sunt recusandae.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, ullam, nobis vero molestiae illo et expedita asperiores minus blanditiis enim officia velit. Beatae odit eum ipsam voluptatum qui itaque est!</p>
+        </div>
+
+        <div class="footer">
+            develop with heart 💖
+        </div>
+    </div>
+</body>
+</html>
