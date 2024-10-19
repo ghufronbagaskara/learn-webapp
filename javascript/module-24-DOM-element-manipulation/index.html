@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Element Manipulation</title>
+    <style>
+        .bg-red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>title</h1>
+        <p>ini text</p>
+    </div>
+    <p id="paragraf">ini paragraf</p>
+    <ul>
+        <li>ini item 1</li>
+        <li>ini item 2</li>
+        <li>ini item 3</li>
+    </ul>
+
+    <script>
+        // mengubah konten
+        // 1. element.textContent
+        const paragraph = document.getElementById('paragraf')
+        paragraph.textContent = 'ini adalah paragraf yang telah diubah'
+        paragraph.innerHTML = 'ini adalah paragraf diubah dengan innerHTML'
+
+        const container = document.getElementById('container')
+
+        container.textContent = "hayo apa"  // akan hanya mengubah text content nya saja
+        container.innerHTML = "<h1>Dirubah dengan innerHTML</h1>"  // dapat mengakses child didalam 
+        //2. attribute manipulation 
+        paragraph.setAttribute('class', 'bg-red')
+
+        // manipulasi style
+        const li = document.querySelectorAll('li')
+        li[2].style.color = 'red'
+        li[1].style.backgroundColor = 'silver'
+    </script>
+
+</body>
+
+</html>

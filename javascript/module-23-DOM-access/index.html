@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM Access</title>
 </head>
+
 <body>
     <h1 id="title">Hello, World</h1>
-    <p>ini paragraf</p>
-
+    <p class="text">ini paragraf</p>
     <ul>
-        <li>item 1</li>
+        <li id="text2">item 1</li>
         <li>item 2</li>
         <li>item 3</li>
     </ul>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-
     <script>
         console.log(document.getElementById("title"));
+            const title = document.getElementById("tittle");
+            const text = document.getElementById("text");
+            const allList = document.getElementsByTagName("li");
+            const list2 = document.getElementsByTagName("li[2]");
+
+            const element = document.querySelector('li');
+            const allElement = document.querySelectorAll('li');
+            const elementWithId = document.querySelectorAll('li#text2');
     </script>
 </body>
+
 </html>

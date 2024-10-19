@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Traversal</title>
+</head>
+
+<body>
+    <h1>Ini Judul</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, eligendi praesentium consequuntur velit non
+        sapiente commodi, autem, quia quidem architecto sed ab alias sint tenetur laborum. Assumenda ducimus tenetur
+        esse?
+    </p>
+    <ul id="list">
+        <li id="item-1">Item 1</li>
+        <li id="item-2">Item 2</li>
+        <li id="item-3">Item 3</li>
+    </ul>
+
+    <script>
+        let item1 = document.getElementById('item-1')
+        let item2 = document.getElementById('item-2')
+        console.log(item1.parentNode);  // akan bisa mengerti node nya (body, dll)
+        console.log(item1.parentElement);  // hanya akan ke element parent saja
+
+        let listItem = document.getElementById('list')
+        console.log(listItem.childNodes);  // akan mengembalikan seluruh isi, termasuk spasi
+        console.log(listItem.children);  // hanya akan mengembalikan anak saja
+        console.log(listItem.firstChild);   // anak pertama adalah spasi
+        console.log(listItem.firstElementChild); // mengabaikan spasi 
+        console.log(listItem.lastElementChild);
+        console.log(listItem.nextElementSibling);
+
+        console.log(listItem.previousElementSibling);  // akan me return item1
+
+
+
+
+
+    </script>
+</body>
+
+</html>

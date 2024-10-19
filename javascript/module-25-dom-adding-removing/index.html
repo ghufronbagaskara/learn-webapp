@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Adding and Removing</title>
+</head>
+
+<body>
+    <h1>DOM menambah dan menghapus element</h1>
+    <ul id="list">
+        <li>item 1</li>
+        <li id="item-2">item 2</li>
+        <li>item 3</li>
+    </ul>
+
+    <script>
+        // menambahkan element
+        const newDiv = document.createElement('div')
+        newDiv.textContent = "ini dibuat dari script"
+        newDiv.id = "content1"
+        document.body.appendChild(newDiv)
+
+        var newDiv2 = document.createElement('div')
+        newDiv2.textContent = "ini adala div kedua"
+        newDiv2.id = "content2"
+        newDiv.appendChild(newDiv2)
+
+        let newLi = document.createElement('li')
+        newLi.textContent = 'item dari script'
+        let parentLi = document.getElementById('list')
+        parentLi.appendChild(newLi)
+
+        // menghapus element
+        let itemRemoved = document.getElementById('item-2')
+        itemRemoved.remove()
+        document.body.remove()
+    </script>
+</body>
+
+</html>
