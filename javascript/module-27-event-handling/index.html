@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+</head>
+
+<body>
+    <button onclick="getClicked()">click me</button>
+    <button id="submit">submit</button>
+
+    <p id="text">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam necessitatibus illum, praesentium suscipit
+        nostrum, nulla est ullam eius distinctio, incidunt expedita aspernatur dolor ducimus ab earum ad provident.
+        Obcaecati, aspernatur?
+    </p>
+</body>
+
+<script>
+    function getClicked() {
+        text.style.backgroundColor = 'maroon'
+    }
+
+    let button = document.getElementById('submit')
+    button.addEventListener('click', () => {
+        alert('submitted')
+    })
+    button.addEventListener('mouseover', () => {
+        alert('mouseover')
+    })
+
+    let text = document.getElementById('text')
+    text.addEventListener('mouseover', () => {
+        text.style.backgroundColor = 'blue'
+    })
+    text.addEventListener('mouseout', () => {
+        text.style.backgroundColor = 'white'
+    })
+</script>
+
+</html>
