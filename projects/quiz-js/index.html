@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App - JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>Quiz App</h1>
+        <div id="question-container" class="question-container">
+            <!-- Soal akan dituliskan disini -->
+            <p id="question">Question right here</p>
+        </div>
+
+        <div id="answer-buttons" class="answer-buttons">
+            <!-- Jawaban akan diketikkan dibawah  -->
+        </div>
+
+        <button id="next-btn" class="next-btn">
+            Next Question
+        </button>
+
+        <!-- Menampilkan score -->
+        <div id="result-container" class="result-container" style="display: none;">
+            <p id="score">Your score : 4 / 4</p>
+            <button class="restart-btn" id="restart-btn">
+                Restart Quiz
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
