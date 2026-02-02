@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+      }
+      .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .tab {
+        padding: 10px 20px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        background: #f0f0f0;
+        border-radius: 5px;
+      }
+      .tab.active {
+        background: #007bff;
+        color: white;
+        border-color: #007bff;
+      }
+      .content {
+        display: none;
+      }
+      .content.active {
+        display: block;
+      }
+      canvas {
+        max-width: 100%;
+      }
+      button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      #hoverInfo {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Latihan Chart.js</h1>
+
+    <div class="tabs">
+      <div class="tab active" onclick="showTab(1)">Latihan 1</div>
+      <div class="tab" onclick="showTab(2)">Latihan 2</div>
+      <div class="tab" onclick="showTab(3)">Latihan 3</div>
+    </div>
+
+    <!-- latian 1 -->
+    <div id="tab1" class="content active">
+      <h2>Latihan 1: Mengubah Warna Chart</h2>
+      <canvas id="chart1"></canvas>
+    </div>
+
+    <!-- latihan2 -->
+    <div id="tab2" class="content">
+      <h2>Latihan 2: Menambah Data Point</h2>
+      <canvas id="chart2"></canvas>
+      <button onclick="addDataPoint()">Tambah Data Point (6)</button>
+    </div>
+
+    <!-- latihan 3 -->
+    <div id="tab3" class="content">
+      <h2>Latihan 3: Event Listener Mouse Hover</h2>
+      <canvas id="chart3"></canvas>
+      <div id="hoverInfo">Hover pada chart untuk melihat index data</div>
+    </div>
+
+    <script>
+      let chart1, chart2, chart3;
+
+      const ctx1 = document.getElementById("chart1").getContext("2d");
+      chart1 = new Chart(ctx1, {
+        type: "line",
+        data: {
+          labels: ["1", "2", "3", "4", "5"],
+          datasets: [
+            {
+              label: "Data",
+              data: [1, 2, 3, 4, 5],
+              borderColor: "red",
+              backgroundColor: "rgba(255, 0, 0, 0.1)",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Chart Line Warna Merah",
+            },
+          },
+        },
+      });
+
+      const ctx2 = document.getElementById("chart2").getContext("2d");
+      chart2 = new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: ["1", "2", "3", "4", "5"],
+          datasets: [
+            {
+              label: "Data",
+              data: [1, 2, 3, 4, 5],
+              borderColor: "blue",
+              backgroundColor: "rgba(0, 0, 255, 0.1)",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Chart Line - Tambah Data Point",
+            },
+          },
+        },
+      });
+
+      function addDataPoint() {
+        chart2.data.labels.push("6");
+        chart2.data.datasets[0].data.push(6);
+        chart2.update();
+      }
+
+      const ctx3 = document.getElementById("chart3").getContext("2d");
+      chart3 = new Chart(ctx3, {
+        type: "line",
+        data: {
+          labels: ["1", "2", "3", "4", "5"],
+          datasets: [
+            {
+              label: "Data",
+              data: [1, 2, 3, 4, 5],
+              borderColor: "green",
+              backgroundColor: "rgba(0, 255, 0, 0.1)",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Chart Line - Hover Event",
+            },
+          },
+          onHover: (event, activeElements) => {
+            if (activeElements.length > 0) {
+              const index = activeElements[0].index;
+              document.getElementById("hoverInfo").textContent =
+                `Data Index: ${index} | Nilai: ${chart3.data.datasets[0].data[index]}`;
+            } else {
+              document.getElementById("hoverInfo").textContent =
+                "Hover pada chart untuk melihat index data";
+            }
+          },
+        },
+      });
+      // tab
+      function showTab(tabNum) {
+        document.querySelectorAll(".content").forEach((content) => {
+          content.classList.remove("active");
+        });
+        document.querySelectorAll(".tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        document.getElementById("tab" + tabNum).classList.add("active");
+        document.querySelectorAll(".tab")[tabNum - 1].classList.add("active");
+      }
+    </script>
+  </body>
+</html>
