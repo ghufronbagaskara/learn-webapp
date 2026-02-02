@@ -9,7 +9,6 @@ const wpmDisplay = document.getElementById('words-per-minute')
 
 console.log(textToType);
 
-
 let startTime;
 let timerInterval;
 
