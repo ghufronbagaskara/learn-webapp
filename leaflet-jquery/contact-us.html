@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us</title>
+
+    <!-- leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- leaflet on js -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      #map {
+        height: 300px;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      button {
+        margin-top: 15px;
+        padding: 8px 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Contact Us</h2>
+
+    <div id="map"></div>
+
+    <form id="contactForm">
+      <label>
+        Nama:
+        <input type="text" id="nama" required />
+      </label>
+
+      <label>
+        Provinsi:
+        <select id="provinsi" required>
+          <option value="">Pilih Provinsi</option>
+          <option value="Jawa Timur">Jawa Timur</option>
+          <option value="Jawa Tengah">Jawa Tengah</option>
+        </select>
+      </label>
+
+      <label>
+        Kota:
+        <select id="kota" required>
+          <option value="">Pilih Kota</option>
+        </select>
+      </label>
+
+      <label>
+        Message:
+        <textarea id="message" rows="4" required></textarea>
+      </label>
+
+      <button type="submit">Kirim ke WhatsApp</button>
+    </form>
+
+    <script>
+      const map = L.map("map").setView([-7.9525, 112.6137], 13);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap",
+      }).addTo(map);
+
+      L.marker([-7.9525, 112.6137])
+        .addTo(map)
+        .bindPopup("Lokasi Kami")
+        .openPopup();
+
+      const dataKota = {
+        "Jawa Timur": ["Malang", "Surabaya"],
+        "Jawa Tengah": ["Semarang", "Solo"],
+      };
+
+      $("#provinsi").on("change", function () {
+        const provinsi = $(this).val();
+        const kotaSelect = $("#kota");
+
+        kotaSelect.empty();
+        kotaSelect.append('<option value=""> Pilih Kota </option>');
+
+        if (provinsi && dataKota[provinsi]) {
+          dataKota[provinsi].forEach(function (kota) {
+            kotaSelect.append(`<option value="${kota}">${kota}</option>`);
+          });
+        }
+      });
+
+      $("#contactForm").on("submit", function (e) {
+        e.preventDefault();
+
+        const nama = $("#nama").val();
+        const provinsi = $("#provinsi").val();
+        const kota = $("#kota").val();
+        const message = $("#message").val();
+
+        const text = `Halo! saya ${nama} dari ${kota}, ${provinsi}. ${message}`;
+        const encodedText = encodeURIComponent(text);
+
+        const waUrl = `https://wa.me/085156391283?text=${encodedText}`;
+
+        window.open(waUrl, "_blank");
+      });
+    </script>
+  </body>
+</html>
