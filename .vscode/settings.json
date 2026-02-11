@@ -31,6 +31,8 @@
     "editor.formatOnSave": true
   },
 
+  "intelephense.format.braces": "k&r",
+
   "tailwindCSS.includeLanguages": {
     "php": "html"
   },
