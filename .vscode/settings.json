@@ -1,6 +1,37 @@
 {
-  "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+
+  "editor.fontFamily": "Roboto Mono, JetBrains Mono, monospace",
+
   "diffEditor.codeLens": true,
-  "editor.fontFamily": "Roboto Mono, JetBrains Mono"
+  "editor.defaultFormatter": "biomejs.biome",
+
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+    "editor.formatOnSave": true
+  },
+
+  "tailwindCSS.includeLanguages": {
+    "php": "html"
+  },
 }
