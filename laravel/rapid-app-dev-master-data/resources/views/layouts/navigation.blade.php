@@ -10,13 +10,42 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-            </div>
+                            <!-- Navigation Links -->
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                                    {{ __('Dashboard') }}
+                                </x-nav-link>
+                
+                                @can('view products')
+                                <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">
+                                    {{ __('Products') }}
+                                </x-nav-link>
+                                @endcan
+                
+                                @can('view suppliers')
+                                <x-nav-link :href="route('suppliers.index')" :active="request()->routeIs('suppliers.*')">
+                                    {{ __('Suppliers') }}
+                                </x-nav-link>
+                                @endcan
+                
+                                @can('view customers')
+                                <x-nav-link :href="route('customers.index')" :active="request()->routeIs('customers.*')">
+                                    {{ __('Customers') }}
+                                </x-nav-link>
+                                @endcan
+                
+                                @can('view purchases')
+                                <x-nav-link :href="route('purchases.index')" :active="request()->routeIs('purchases.*')">
+                                    {{ __('Purchases') }}
+                                </x-nav-link>
+                                @endcan
+                
+                                @can('view sales')
+                                <x-nav-link :href="route('sales.index')" :active="request()->routeIs('sales.*')">
+                                    {{ __('Sales') }}
+                                </x-nav-link>
+                                @endcan
+                            </div>            </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
