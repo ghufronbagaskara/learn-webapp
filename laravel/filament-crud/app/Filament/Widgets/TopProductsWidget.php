@@ -18,9 +18,9 @@ class TopProductsWidget extends BaseWidget {
       ->heading('Top 5 Best Selling Products')
       ->query(
         Product::query()
-          ->withSum('salesOrderItems', 'qty')
+        ->withSum('salesOrderItems', 'quantity')
           ->withSum('salesOrderItems', 'subtotal')
-          ->orderByDesc('sales_order_items_sum_qty')
+        ->orderByDesc('sales_order_items_sum_quantity')
           ->limit(5)
       )
       ->columns([
@@ -34,7 +34,7 @@ class TopProductsWidget extends BaseWidget {
           ->money('IDR')
           ->sortable(),
 
-        Tables\Columns\TextColumn::make('sales_order_items_sum_qty')
+      Tables\Columns\TextColumn::make('sales_order_items_sum_quantity')
           ->label('Total Sold')
           ->sortable()
           ->badge()
