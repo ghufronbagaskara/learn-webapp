@@ -1,20 +1,25 @@
 <?php
 
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+  return redirect()->route('orders.index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// orders
+Route::resource('orders', OrderController::class);
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+// payments
+Route::prefix('payments')->name('payments.')->group(function () {
+  Route::get('/', [PaymentController::class, 'index'])->name('index');
+  Route::get('/{payment}', [PaymentController::class, 'show'])->name('show');
+  Route::post('/create/{order}', [PaymentController::class, 'create'])->name('create');
+  Route::post('/{payment}/check-status', [PaymentController::class, 'checkStatus'])->name('check-status');
+
+  Route::get('/success-page', [PaymentController::class, 'success'])->name('success');
+  Route::get('/failed-page', [PaymentController::class, 'failed'])->name('failed');
 });
-
-require __DIR__.'/auth.php';
