@@ -40,8 +40,8 @@ class XenditService {
         'invoice_reminder' => ['email'],
         'invoice_paid' => ['email'],
       ],
-      'success_redirect_url' => route('payments.success'),
-      'failure_redirect_url' => route('payments.failed'),
+      'success_redirect_url' => route('payments.success', ['external_id' => $externalId]),
+      'failure_redirect_url' => route('payments.failed', ['external_id' => $externalId]),
       'currency' => ('IDR'),
     ]);
 
