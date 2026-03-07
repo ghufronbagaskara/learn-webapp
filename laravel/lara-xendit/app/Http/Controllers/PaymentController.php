@@ -40,9 +40,7 @@ class PaymentController extends Controller {
 
       $payment = $this->xenditService->createInvoice($order);
 
-      return redirect()
-        ->route('payments.show', $payment)
-        ->with('success', 'Payment invoice created successfully!');
+      return redirect($payment->invoice_url);
     } catch (Exception $e) {
       return back()->with('error', 'Failed to create payment: ' . $e->getMessage());
     }
