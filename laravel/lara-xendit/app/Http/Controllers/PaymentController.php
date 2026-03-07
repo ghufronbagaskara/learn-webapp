@@ -86,7 +86,6 @@ class PaymentController extends Controller {
 
           $payment = $this->xenditService->handleCallback($invoiceData);
         } catch (Exception $e) {
-          // just log and continue to view
           \Illuminate\Support\Facades\Log::error('Failed to auto-update payment status on success page: ' . $e->getMessage());
         }
       }
