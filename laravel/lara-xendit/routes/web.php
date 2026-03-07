@@ -16,10 +16,10 @@ Route::resource('orders', OrderController::class);
 // payments
 Route::prefix('payments')->name('payments.')->group(function () {
   Route::get('/', [PaymentController::class, 'index'])->name('index');
+  Route::get('/success-page', [PaymentController::class, 'success'])->name('success');
+  Route::get('/failed-page', [PaymentController::class, 'failed'])->name('failed');
+
   Route::get('/{payment}', [PaymentController::class, 'show'])->name('show');
   Route::post('/create/{order}', [PaymentController::class, 'create'])->name('create');
   Route::post('/{payment}/check-status', [PaymentController::class, 'checkStatus'])->name('check-status');
-
-  Route::get('/success-page', [PaymentController::class, 'success'])->name('success');
-  Route::get('/failed-page', [PaymentController::class, 'failed'])->name('failed');
 });
