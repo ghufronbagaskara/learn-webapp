@@ -28,7 +28,7 @@ class XenditService {
     $requestParams = new CreateInvoiceRequest([
       'external_id' => $externalId,
       'amount' => (float) $order->amount,
-      'description' => (float) $order->description,
+      'description' => (string) $order->description,
       'invoice_duration' => $options['invoice_duration'] ?? 86400,
       'customer' => [
         'given_names' => $order->customer_name,
@@ -40,8 +40,8 @@ class XenditService {
         'invoice_reminder' => ['email'],
         'invoice_paid' => ['email'],
       ],
-      'success_redirect_url' => route('payment.success'),
-      'failure_redirect_url' => route('payment.failure'),
+      'success_redirect_url' => route('payments.success'),
+      'failure_redirect_url' => route('payments.failed'),
       'currency' => ('IDR'),
     ]);
 
@@ -58,7 +58,7 @@ class XenditService {
         'amount' => $invoice->getAmount(),
         'currency' => $invoice->getCurrency(),
         'status' => $this->mapXenditStatus((string) $invoice->getStatus()),
-        'expired_at' => $invoice->getExpiryDate() ? (string) $invoice->getExpiryDate() : null,
+        'expired_at' => $this->formatDateTime($invoice->getExpiryDate()),
         'xendit_response' => $this->invoiceToArray($invoice),
       ]);
 
@@ -100,7 +100,7 @@ class XenditService {
       'xendit_response' => $data
     ]);
 
-    if ($status === ' PAID') {
+    if ($status === 'PAID') {
       $payment->markAsPaid(
         $data['payment_method'] ?? null,
         $data['payment_channel'] ?? null,
