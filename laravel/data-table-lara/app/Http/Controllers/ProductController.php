@@ -64,4 +64,42 @@ class ProductController extends Controller {
       'data' => $data
     ]);
   }
+
+  public function store(Request $request) {
+    $validated = $request->validate([
+      'name' => 'required|string|max:255',
+      'sku' => 'required|string|unique:products,sku',
+      'category' => 'required|string',
+      'price' => 'required|numeric|min:0',
+      'stock' => 'required|integer|min:0',
+      'status' => 'required|in:active,inactive,draft',
+      'description' => 'nullable|string',
+    ]);
+
+    Product::create($validated);
+
+    return redirect()->back()->with('success', 'Produk berhasil ditambahkan');
+  }
+
+  public function update(Request $request, Product $product) {
+    $validated = $request->validate([
+      'name' => 'required|string|max:255',
+      'sku' => 'required|string|unique:products,sku,' . $product->id,
+      'category' => 'required|string',
+      'price' => 'required|numeric|min:0',
+      'stock' => 'required|integer|min:0',
+      'status' => 'required|in:active,inactive,draft',
+      'description' => 'nullable|string',
+    ]);
+
+    $product->update($validated);
+
+    return redirect()->back()->with('success', 'Produk berhasil diperbarui');
+  }
+
+  public function destroy(Product $product) {
+    $product->delete();
+
+    return redirect()->back()->with('success', 'Produk berhasil dihapus');
+  }
 }
