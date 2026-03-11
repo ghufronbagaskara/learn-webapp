@@ -11,9 +11,9 @@ Route::inertia('/', 'welcome', [
 Route::middleware(['auth', 'verified'])->group(function () {
   Route::inertia('dashboard', 'dashboard')->name('dashboard');
 
+  // Product Routes
   Route::get('products/datatable', [ProductController::class, 'datatable'])->name('products.datatable');
-  Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
-  Route::resource('products', ProductController::class)->except('show', 'create', 'edit');
+  Route::resource('products', ProductController::class);
 });
 
 require __DIR__ . '/settings.php';
