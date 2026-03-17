@@ -32,8 +32,8 @@ export interface ProductFormData {
 export type ModalMode = 'create' | 'edit' | 'delete' | null;
 
 export interface ModalState {
-  mode: ModalMode
-  product: Product | null
+  mode: ModalMode;
+  product: Product | null;
 }
 
 export interface Column {

@@ -1,4 +1,4 @@
-import { Search, X, FileSpreadsheet, FileText, Filter, RefreshCw, Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, FileSpreadsheet, FileText, Filter, RefreshCw, Search, X } from 'lucide-react';
 import { useState } from 'react';
 import type { Column, Product } from './types';
 
@@ -17,7 +17,11 @@ function ColumnVisibilityPanel({ columns, onToggle, onClose }: ColumnVisibilityP
         <span className="text-xs font-semibold uppercase tracking-wider text-white/60">
           Visibilitas Kolom
         </span>
-        <button onClick={onClose} className="text-white/40 transition-colors hover:text-white">
+        <button
+          type="button"
+          onClick={onClose}
+          className="text-white/40 transition-colors hover:text-white"
+        >
           <X className="h-3.5 w-3.5" />
         </button>
       </div>
@@ -26,6 +30,7 @@ function ColumnVisibilityPanel({ columns, onToggle, onClose }: ColumnVisibilityP
           .filter((c) => c.key !== 'actions')
           .map((col) => (
             <button
+              type="button"
               key={col.key}
               onClick={() => onToggle(col.key as string)}
               className="flex w-full items-center justify-between rounded-lg px-3 py-2 transition-colors hover:bg-white/5"
@@ -107,7 +112,7 @@ export function ProductTableToolbar({
             className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-sm text-white outline-none focus:ring-1 focus:ring-indigo-500/50"
           >
             {[10, 25, 50, 100].map((n) => (
-              <option key={n} value={n} className="bg-[#0f1117]">
+              <option key={`page-size-${n}`} value={n} className="bg-[#0f1117]">
                 {n}
               </option>
             ))}
@@ -116,6 +121,7 @@ export function ProductTableToolbar({
         </div>
 
         <button
+          type="button"
           onClick={exportCSV}
           className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/60 transition-colors hover:bg-white/10 hover:text-white"
         >
@@ -123,6 +129,7 @@ export function ProductTableToolbar({
           CSV
         </button>
         <button
+          type="button"
           onClick={() => window.print()}
           className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/60 transition-colors hover:bg-white/10 hover:text-white"
         >
@@ -145,6 +152,7 @@ export function ProductTableToolbar({
           />
           {search && (
             <button
+              type="button"
               onClick={() => onSearch('')}
               className="absolute right-2.5 top-1/2 -translate-y-1/2 text-white/30 transition-colors hover:text-white"
             >
@@ -156,6 +164,7 @@ export function ProductTableToolbar({
         {/* Column Visibility */}
         <div className="relative">
           <button
+            type="button"
             onClick={() => setShowColumnPanel((v) => !v)}
             title="Visibilitas kolom"
             className={`rounded-lg border p-2 text-sm transition-colors
@@ -178,6 +187,7 @@ export function ProductTableToolbar({
 
         {/* Refresh */}
         <button
+          type="button"
           onClick={onRefresh}
           title="Refresh"
           className="rounded-lg border border-white/10 bg-white/5 p-2 text-white/50 transition-colors hover:bg-white/10 hover:text-white"
