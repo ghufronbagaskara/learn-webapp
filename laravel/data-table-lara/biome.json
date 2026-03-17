@@ -11,5 +11,13 @@
       "quoteStyle": "single",
       "semicolons": "always"
     }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "suspicious": {
+        "noArrayIndexKey": "off"
+      }
+    }
   }
 }
