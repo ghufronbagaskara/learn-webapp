@@ -23,6 +23,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Auth is handled by JWT guard and middleware.
-    }
+    // Auth is handled by JWT guard and middleware.
+  }
 }
