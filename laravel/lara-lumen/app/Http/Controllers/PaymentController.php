@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Payment;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -22,7 +23,7 @@ class PaymentController extends Controller
         'method' => 'required|in:bank_transfer,credit_card,e_wallet',
       ]);
 
-      $payment = DB::transaction(function () use ($request) {
+      [$payment, $invoiceOrder] = DB::transaction(function () use ($request) {
         $order = Order::with(['user', 'items.product', 'payment'])
           ->lockForUpdate()
           ->findOrFail($request->order_id);
@@ -35,7 +36,7 @@ class PaymentController extends Controller
           throw new RuntimeException('Order sudah dibayar', 422);
         }
 
-        $paymentRef = 'PAY-' . strtoupper(uniqid());
+        $paymentRef = 'PAY-' . strtoupper(Str::random(20));
         $payment = Payment::create([
           'order_id' => $order->id,
           'amount' => $order->total_price,
@@ -46,11 +47,10 @@ class PaymentController extends Controller
 
         $order->update(['status' => 'paid']);
 
-        $invoiceOrder = $order->fresh(['user', 'items.product', 'payment']);
-        Mail::to($invoiceOrder->user->email)->send(new InvoiceMail($invoiceOrder));
-
-        return $payment;
+        return [$payment, $order->fresh(['user', 'items.product', 'payment'])];
       });
+
+      Mail::to($invoiceOrder->user->email)->send(new InvoiceMail($invoiceOrder));
 
       return response()->json([
         'success' => true,
