@@ -6,23 +6,23 @@ use Illuminate\Support\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
+  /**
+   * Register any application services.
+   *
+   * @return void
+   */
+  public function register()
+  {
+    //
+  }
 
-    /**
-     * Boot the authentication services for the application.
-     *
-     * @return void
-     */
-    public function boot()
-    {
+  /**
+   * Boot the authentication services for the application.
+   *
+   * @return void
+   */
+  public function boot()
+  {
     // Auth is handled by JWT guard and middleware.
   }
 }
