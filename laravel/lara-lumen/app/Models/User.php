@@ -20,9 +20,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     'email',
     'password',
     'role',
-    'email_verified_at',
-    'remember_token',
-    ];
+  ];
 
   protected $hidden = [
         'password',
@@ -31,7 +29,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
   protected $casts = [
     'email_verified_at' => 'datetime',
-    ];
+  ];
 
   public function orders(): HasMany
   {
