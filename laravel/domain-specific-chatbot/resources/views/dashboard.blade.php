@@ -91,7 +91,7 @@
 <div class="fixed bottom-8 right-8">
     <a href="{{ route('chat') }}" class="flex items-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-4 rounded-full shadow-lg transition-all transform hover:scale-105 active:scale-95">
         <i class="fas fa-robot text-xl"></i>
-        <span class="font-bold">Ask MaxBot 🤖</span>
+        <span class="font-bold">Tanya SpiritBot 🤖</span>
     </a>
 </div>
 @endsection
