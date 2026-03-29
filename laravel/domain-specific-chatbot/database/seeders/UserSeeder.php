@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             ['name' => 'Budi Santoso', 'email' => 'budi@example.com', 'role' => 'student'],
             ['name' => 'Rina Kusuma', 'email' => 'rina@example.com', 'role' => 'student'],
             ['name' => 'Dimas Raharja', 'email' => 'dimas@example.com', 'role' => 'student'],
-            ['name' => 'Admin Maxia', 'email' => 'admin@example.com', 'role' => 'admin'],
+            ['name' => 'Admin Spirit', 'email' => 'admin@example.com', 'role' => 'admin'],
         ];
 
         $users = [];
