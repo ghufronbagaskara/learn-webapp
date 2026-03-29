@@ -5,7 +5,7 @@
     <!-- Sidebar (User Progress Summary) -->
     <div class="hidden md:flex flex-col w-72 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         <div class="p-4 border-b border-gray-100 bg-gray-50">
-            <h2 class="font-bold text-gray-900">Learning Progress</h2>
+            <h2 class="font-bold text-gray-900">Progres Belajar</h2>
         </div>
         <div class="flex-1 overflow-y-auto p-4 space-y-6">
             @foreach($userCourses as $uc)
@@ -24,7 +24,7 @@
             <form action="{{ route('chat.clear') }}" method="POST">
                 @csrf
                 <button type="submit" class="w-full py-2 px-4 bg-red-50 text-red-600 rounded-lg text-sm font-semibold hover:bg-red-100 transition-colors">
-                    <i class="fas fa-trash-alt mr-2"></i> Clear History
+                    <i class="fas fa-trash-alt mr-2"></i> Hapus Riwayat
                 </button>
             </form>
         </div>
@@ -39,10 +39,10 @@
                     <i class="fas fa-robot text-xl"></i>
                 </div>
                 <div>
-                    <h2 class="font-bold text-gray-900">MaxBot</h2>
+                    <h2 class="font-bold text-gray-900">SpiritBot</h2>
                     <div class="flex items-center space-x-1">
                         <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                        <span class="text-xs text-gray-500">AI Study Assistant</span>
+                        <span class="text-xs text-gray-500">Asisten Belajar AI</span>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-gray-100">
                     <p class="text-sm text-gray-800">
-                        Hello {{ $user->name }}! I'm MaxBot, your AI Study Assistant. I've analyzed your progress across {{ $userCourses->count() }} courses. How can I help you today?
+                        Halo {{ $user->name }}! Saya SpiritBot, asisten belajar AI Anda. Saya telah menganalisis progres Anda di {{ $userCourses->count() }} kursus. Ada yang bisa saya bantu hari ini?
                     </p>
                 </div>
             </div>
@@ -98,7 +98,7 @@
         <div class="p-4 border-t border-gray-100 bg-white">
             <form id="chat-form" class="flex space-x-4">
                 <div class="flex-1 relative">
-                    <textarea id="user-message" rows="1" placeholder="Type your question here..." 
+                    <textarea id="user-message" rows="1" placeholder="Ketik pertanyaan Anda di sini..." 
                         class="w-full py-3 px-4 bg-gray-100 border-transparent rounded-xl focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all resize-none overflow-hidden"></textarea>
                 </div>
                 <button type="submit" id="send-button" class="bg-indigo-600 text-white w-12 h-12 rounded-xl flex items-center justify-center hover:bg-indigo-700 transition-colors disabled:opacity-50">
