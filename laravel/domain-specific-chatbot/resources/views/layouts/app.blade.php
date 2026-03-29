@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'Maxia') }}</title>
+    <title>{{ config('app.name', 'Spirit') }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -18,7 +18,7 @@
             <div class="flex justify-between h-16">
                 <div class="flex">
                     <div class="flex-shrink-0 flex items-center">
-                        <a href="{{ route('dashboard') }}" class="text-2xl font-bold text-indigo-600">Maxia</a>
+                        <a href="{{ route('dashboard') }}" class="text-2xl font-bold text-indigo-600">Spirit</a>
                     </div>
                     @auth
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -26,7 +26,7 @@
                             Dashboard
                         </a>
                         <a href="{{ route('chat') }}" class="{{ request()->routeIs('chat') ? 'border-indigo-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700' }} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                            Ask MaxBot 🤖
+                            Tanya SpiritBot 🤖
                         </a>
                     </div>
                     @endauth
@@ -56,7 +56,7 @@
 
     <footer class="bg-white border-t border-gray-200 mt-auto py-6">
         <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
-            &copy; {{ date('Y') }} Maxia Online Course Platform. All rights reserved.
+            &copy; {{ date('Y') }} Spirit Online Course Platform. All rights reserved.
         </div>
     </footer>
     
