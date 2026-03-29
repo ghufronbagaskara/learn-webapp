@@ -1,11 +1,11 @@
-# Online Course Chatbot — Online Course Platform
+# Online Course Chatbot — Spirit Online Course Platform
 
-A Laravel-based Online Course Platform featuring "MaxBot", an AI Study Assistant powered by Groq API (`llama-3.3-70b-versatile`).
+A Laravel-based Online Course Platform featuring "SpiritBot", an AI Study Assistant powered by Groq API (`llama-3.3-70b-versatile`).
 
 ## Features
 - **Manual Authentication:** Simple login/logout system.
 - **Personalized Dashboard:** Track course progress and stats.
-- **AI Study Assistant (MaxBot):** Chatbot that knows your profile, enrolled courses, and learning progress.
+- **AI Study Assistant (SpiritBot):** Chatbot that knows your profile, enrolled courses, and learning progress.
 - **Responsive UI:** Built with Tailwind CSS and FontAwesome.
 
 ## Tech Stack
@@ -53,7 +53,7 @@ A Laravel-based Online Course Platform featuring "MaxBot", an AI Study Assistant
 |------|-------|----------|------|
 | Andi Pratama | andi@example.com | password | student |
 | Sari Dewi | sari@example.com | password | student |
-| Admin Maxia | admin@example.com | password | admin |
+| Admin Spirit | admin@example.com | password | admin |
 
 ## AI Configuration
 The chatbot logic is located in `app/Http/Controllers/ChatController.php`. It uses the `Http` facade to communicate with Groq API.
