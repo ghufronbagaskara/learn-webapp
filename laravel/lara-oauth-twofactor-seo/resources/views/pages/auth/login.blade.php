@@ -49,6 +49,15 @@
             </div>
         </form>
 
+        <div class="grid gap-2">
+            <a href="{{ route('social.redirect', ['provider' => 'google']) }}" class="rounded-lg border border-zinc-200 px-4 py-2 text-center text-sm font-medium hover:bg-zinc-50">
+                Masuk dengan Google
+            </a>
+            <a href="{{ route('social.redirect', ['provider' => 'facebook']) }}" class="rounded-lg border border-zinc-200 px-4 py-2 text-center text-sm font-medium hover:bg-zinc-50">
+                Masuk dengan Facebook
+            </a>
+        </div>
+
         @if (Route::has('register'))
             <div class="space-x-1 text-sm text-center rtl:space-x-reverse text-zinc-600 dark:text-zinc-400">
                 <span>{{ __('Don\'t have an account?') }}</span>
