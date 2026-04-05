@@ -122,5 +122,9 @@ new #[Title('Profile settings')] class extends Component {
         @if ($this->showDeleteUser)
             <livewire:pages::settings.delete-user-form />
         @endif
+
+        <div class="mt-8">
+            <livewire:two-factor-setup />
+        </div>
     </x-pages::settings.layout>
 </section>
